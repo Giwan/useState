@@ -7,7 +7,21 @@ type Props = {
 
 const ChildApp = ({ handleFetchRequest, shouldFetch }: Props) => {
   React.useEffect(() => {
-    if (shouldFetch) handleFetchRequest();
+    /*
+     * use  `setInterval` and the test will fail. 
+     * The number of fetch calls are 1 instead of 2. 
+     * That's incorrect since the child will trigger 
+     * the second fetch call
+     */
+    // setInterval(() => {
+    //   if (shouldFetch) handleFetchRequest();
+    // });
+
+    /**
+     * don't use setInterval and the test will pass
+     * There are indeed two fetch calls. 
+     */
+      if (shouldFetch) handleFetchRequest();
   }, [shouldFetch, handleFetchRequest]);
 
   return (

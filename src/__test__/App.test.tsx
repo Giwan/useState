@@ -1,14 +1,17 @@
-import * as React from "react"; 
-import { render } from "@testing-library/react"; 
+import * as React from "react";
+import { render } from "@testing-library/react";
 import App from "../App";
 
 describe("should render the component", () => {
     it("should render", () => {
-        global.jest = jest.fn(); 
-        
-        const { container } = render(<App />); 
+        // @ts-ignore-next-line
+        global.fetch = jest.fn(() => Promise.resolve({
+            ok: true,
+        }));
 
-        expect(global.jest).toHaveBeenCalledTimes(1);
+        render(<App />);
+
+        expect(global.fetch).toHaveBeenCalledTimes(2);
 
     })
 })
