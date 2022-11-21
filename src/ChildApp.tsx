@@ -13,15 +13,15 @@ const ChildApp = ({ handleFetchRequest, shouldFetch }: Props) => {
      * That's incorrect since the child will trigger 
      * the second fetch call
      */
-    // setInterval(() => {
-    //   if (shouldFetch) handleFetchRequest();
-    // });
+    setInterval(() => {
+      if (shouldFetch) handleFetchRequest();
+    }, 0);
 
     /**
      * don't use setInterval and the test will pass
      * There are indeed two fetch calls. 
      */
-      if (shouldFetch) handleFetchRequest();
+      // if (shouldFetch) handleFetchRequest();
   }, [shouldFetch, handleFetchRequest]);
 
   return (

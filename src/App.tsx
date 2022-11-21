@@ -1,5 +1,6 @@
 import * as React from "react";
-import ChildApp from "./ChildApp";
+// import ChildApp from "./ChildApp";
+import ChildApp from "./ChildApp2";
 
 const getData = async () => {
   console.log("fetching data");
