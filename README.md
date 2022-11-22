@@ -26,6 +26,10 @@ The latter uses `setInterval` under the hood. That might be at the root of this 
 It's possibly related to this issue which has not been resolved yet: 
 https://github.com/facebook/jest/issues/10091
 
+# React-infinite-scroll-hook
+It's possible that this component also has a conditional that is causing the two types of computers to behave differently.
+https://github.com/onderonur/react-infinite-scroll-hook/blob/master/src/useInfiniteScroll.ts
 
-
+There are checks on the size of the component which might be rendered differently inside a docker container of a newer mac. 
+Testing this would require me to have the same setup on different Mac computers.
 
